@@ -1,0 +1,25 @@
+apply plugin: "java"
+apply plugin: "groovy"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile "org.codehaus.groovy:groovy-all:2.4.3"
+
+    testCompile "org.seleniumhq.selenium:selenium-firefox-driver:2.53"
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '2.23.0'
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.53.0'
+
+    testCompile "org.gebish:geb-core:0.10.0"
+    testCompile "info.cukes:cucumber-groovy:1.2.0"
+    testCompile "info.cukes:gherkin:2.12.2"
+}
+
+task cucumber() {
+    dependsOn testClasses
+
+}
